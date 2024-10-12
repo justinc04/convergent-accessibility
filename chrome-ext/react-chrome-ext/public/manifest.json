@@ -1,0 +1,13 @@
+{
+  "manifest_version" : 3,
+  "name": "Test react chrome extension",
+  "version": "1.0",
+  "description": "Test chrome extension for DAM Accessibility",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
