@@ -9,5 +9,11 @@
   "permissions": [],
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "content_scripts": [
+   {
+     "matches": ["https://*.google.com/*"],
+     "js": ["test.js"]
+   }
+ ]
 }
