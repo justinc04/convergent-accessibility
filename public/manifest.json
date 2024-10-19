@@ -1,19 +1,13 @@
 {
-  "manifest_version" : 3,
-  "name": "Test react chrome extension",
+  "manifest_version": 3,
+  "name": "Voice Input Extension",
   "version": "1.0",
-  "description": "Test chrome extension for DAM Accessibility",
-  "action": {
-    "default_popup": "index.html"
-  },
-  "permissions": [],
+  "description": "Takes voice input using Web Speech API.",
+  "permissions": ["activeTab", "storage"],
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-   {
-     "matches": ["https://*.google.com/*"],
-     "js": ["test.js"]
-   }
- ]
+  "action": {
+    "default_popup": "popup.html",
+  }
 }
