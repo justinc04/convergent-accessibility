@@ -1,7 +1,7 @@
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 
-var recognizing;
+  var recognizing;
   var recognition = new SpeechRecognition();
   recognition.continuous = true;
   reset();
@@ -11,6 +11,7 @@ var recognizing;
 
     if (event.error === 'not-allowed') {
       // Open a new extension page to request microphone access
+
       const extensionPageUrl = chrome.runtime.getURL("permission.html");
       
       chrome.tabs.create({ url: extensionPageUrl });
@@ -35,6 +36,7 @@ var recognizing;
   }
 
   function toggleStartStop() {
+
     if (recognizing) {
       recognition.stop();
       reset();
