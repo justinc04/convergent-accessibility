@@ -4,10 +4,13 @@
     "version": "1.0.0",
     "description": "This is a Chrome extension built with React and TypeScript",
     "action": {
-        "default_popup": "build/index.html",
+        "default_popup": "index.html",
         "default_title": "React Chrome Extension"
     },
-    "permissions": ["activeTab"],
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
     "web_accessible_resources": [
         {
           "resources": ["static/js/*.js", "static/css/*.css"],

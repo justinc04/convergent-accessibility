@@ -34,23 +34,20 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: "manifest.json", to: "../manifest.json" },
+                { from: path.resolve("manifest.json"), to: path.resolve("build") },
             ],
         }),
         new HTMLPlugin({
             template: './public/index.html', // Add this line to use your template
-            filename: '../index.html', // Output to build directory root
-            chunks: ['index'],
-            title: "React Extension"
         })
     ],
     resolve: {
         extensions: [".jsx", ".js"],
     },
     output: {
-        path: path.join(__dirname, "build/static/js"),
+        path: path.resolve("build"),
         filename: "[name].js",
         // Add this to ensure assets are referenced correctly
-        publicPath: '/static/js/'
+        clean: true
     },
 };
