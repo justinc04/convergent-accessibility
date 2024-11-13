@@ -16,6 +16,13 @@
           "resources": ["static/js/*.js", "static/css/*.css"],
           "matches": ["<all_urls>"]
         }
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["scripts.js"],
+        "css": []
+      }
     ]
   }
   

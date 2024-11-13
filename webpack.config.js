@@ -6,7 +6,8 @@ module.exports = {
     entry: {
         index: "./src/index.js"
     },
-    mode: "production",
+    mode: "development",
+    devtool: "source-map",
     module: {
         rules: [
             {
@@ -34,7 +35,7 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: path.resolve("manifest.json"), to: path.resolve("build") },
+                { from: path.resolve("public/manifest.json"), to: path.resolve("build") },
             ],
         }),
         new HTMLPlugin({
@@ -45,9 +46,8 @@ module.exports = {
         extensions: [".jsx", ".js"],
     },
     output: {
-        path: path.resolve("build"),
-        filename: "[name].js",
-        // Add this to ensure assets are referenced correctly
-        clean: true
-    },
+        path: path.resolve(__dirname, 'build'),
+        filename: 'scripts.js',
+        clean: true,
+      }
 };
