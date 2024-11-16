@@ -36,10 +36,11 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: path.resolve("public/manifest.json"), to: path.resolve("build") },
+                { from: path.resolve("public/content.js"), to: path.resolve("build") }, // Add this line for adding content.js to build
             ],
         }),
         new HTMLPlugin({
-            template: './public/index.html', // Add this line to use your template
+            template: './public/index.html',
         })
     ],
     resolve: {
@@ -49,5 +50,5 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'scripts.js',
         clean: true,
-      }
+    }
 };

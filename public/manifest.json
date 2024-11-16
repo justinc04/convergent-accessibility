@@ -13,14 +13,14 @@
     ],
     "web_accessible_resources": [
         {
-          "resources": ["static/js/*.js", "static/css/*.css"],
+          "resources": ["static/js/*.js", "static/css/*.css", "content.js"], 
           "matches": ["<all_urls>"]
         }
     ],
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
-        "js": ["scripts.js"],
+        "js": ["scripts.js", "content.js"],
         "css": []
       }
     ]
