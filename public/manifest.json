@@ -13,7 +13,7 @@
     ],
     "web_accessible_resources": [
         {
-          "resources": ["static/js/*.js", "static/css/*.css", "content.js"], 
+          "resources": ["static/js/*.js", "static/css/*.css", "content.js", "images/overlay.png"], 
           "matches": ["<all_urls>"]
         }
     ],
