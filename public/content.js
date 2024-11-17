@@ -83,6 +83,16 @@ const handleMouseMove = (event) => {
   }
 };
 
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === 'toggleOverlay') {
+    if (!overlay) {
+      createOverlay();
+    } else {
+      removeOverlay();
+    }
+  }
+});
+
 // Add event listeners
 document.addEventListener('keydown', handleKeyPress);
 document.addEventListener('keydown', handleArrowKeyMovement);
