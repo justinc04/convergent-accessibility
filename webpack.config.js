@@ -50,6 +50,9 @@ module.exports = {
         { from: path.resolve("public/manifest.json"), to: path.resolve("build") },
         { from: path.resolve("public/content.js"), to: path.resolve("build") }, // Copy content.js to build
         { from: path.resolve("public/overlay.png"), to: path.resolve("build/images") }, // Copy overlay.png to build/images
+        { from: path.resolve("public/overlay1.png"), to: path.resolve("build/images") },
+        { from: path.resolve("public/overlay0.png"), to: path.resolve("build/images") },
+        { from: path.resolve("public/overlay2.png"), to: path.resolve("build/images") },
       ],
     }),
     new HTMLPlugin({

@@ -11,10 +11,12 @@ const createOverlay = () => {
     overlay.style.left = `${overlayPosition.left}px`;
 
   
-    overlay.style.width = '450px';
-    overlay.style.height = '225px';
+    overlay.style.width = '225px';
+    overlay.style.height = '110px';
 
-    overlay.style.backgroundImage = `url("chrome-extension://${chrome.runtime.id}/images/overlay.png")`; 
+    overlay.style.backgroundImage = `url("chrome-extension://${chrome.runtime.id}/images/overlay2.png")`;
+    overlay.style.backgroundImage = `url("chrome-extension://${chrome.runtime.id}/images/overlay1.png")`; 
+    overlay.style.backgroundImage = `url("chrome-extension://${chrome.runtime.id}/images/overlay0.png")`; 
     overlay.style.backgroundSize = 'contain'; 
     overlay.style.backgroundPosition = 'center center'; 
     overlay.style.backgroundRepeat = 'no-repeat';
@@ -24,6 +26,28 @@ const createOverlay = () => {
     
 
     document.body.appendChild(overlay);
+
+    let images = [
+      `chrome-extension://${chrome.runtime.id}/images/overlay0.png`,
+      `chrome-extension://${chrome.runtime.id}/images/overlay1.png`,
+      `chrome-extension://${chrome.runtime.id}/images/overlay2.png`,
+      `chrome-extension://${chrome.runtime.id}/images/overlay1.png`
+    ];
+    
+    let delays = [3000, 50, 50, 50];
+    let currentIndex = 0;
+    
+    function blinkImages() {
+      overlay.style.backgroundImage = `url("${images[currentIndex]}")`;
+      let nextIndex = (currentIndex + 1) % images.length;
+      setTimeout(() => {
+        currentIndex = nextIndex;
+        blinkImages();
+      }, delays[currentIndex]);
+    }
+    
+    blinkImages();
+    
   }
 };
 
@@ -85,6 +109,12 @@ chrome.runtime.onMessage.addListener((message) => {
   }
 });
 
-//Even listeners
+
+
+
+
+//Event listeners
 document.addEventListener('keydown', handleKeyPress);
 document.addEventListener('mousemove', handleMouseMove);
+
+
