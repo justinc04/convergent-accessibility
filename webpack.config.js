@@ -53,6 +53,7 @@ module.exports = {
         { from: path.resolve("public/overlay1.png"), to: path.resolve("build/images") },
         { from: path.resolve("public/overlay0.png"), to: path.resolve("build/images") },
         { from: path.resolve("public/overlay2.png"), to: path.resolve("build/images") },
+        { from: path.resolve("public/bubble.png"), to: path.resolve("build/images") },
       ],
     }),
     new HTMLPlugin({

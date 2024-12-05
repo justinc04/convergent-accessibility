@@ -1,6 +1,12 @@
 let overlay = null;
+let bubble = null;
 let overlayPosition = { left: 50, top: 50 }; // Starting position of the overlay
 let isFollowingMouse = false;
+
+const bubblePosition = {
+  top: overlayPosition.top - 50, 
+  left: overlayPosition.left + 100 
+};
 
 const createOverlay = () => {
   if (!overlay) {
@@ -51,12 +57,50 @@ const createOverlay = () => {
   }
 };
 
+const createBubble = () => {
+  if (!bubble) {
+    bubble = document.createElement('div');
+    bubble.id = 'extension-bubble';
+    bubble.style.position = 'fixed';
+    bubble.style.top = `${bubblePosition.top}px`;
+    bubble.style.left = `${bubblePosition.left}px`;
+
+    bubble.style.width = '225px';
+    bubble.style.height = '105px';
+
+    bubble.style.backgroundImage = `url("chrome-extension://${chrome.runtime.id}/images/bubble.png")`;
+    bubble.style.backgroundSize = 'contain';
+    bubble.style.backgroundPosition = 'center center';
+    bubble.style.backgroundRepeat = 'no-repeat';
+    bubble.style.borderRadius = '10px';
+    bubble.style.zIndex = 1000;
+    bubble.style.transition = 'top .75s ease, left .75s ease';
+
+    document.body.appendChild(bubble);
+  }
+};
+
 // Remove the overlay if it exists
 const removeOverlay = () => {
   if (overlay) {
     document.body.removeChild(overlay);
     overlay = null;
   }
+};
+
+const removeBubble = () => {
+  if (bubble) {
+    document.body.removeChild(bubble);
+    bubble = null; // Reset the bubble reference
+  }
+};
+
+const showBubble = (x, y) => {
+  setTimeout(() => {
+    createBubble();
+    bubble.style.left = `${x + 120}px`;
+    bubble.style.top = `${y - 60}px`;
+  }, 750);
 };
 
 
@@ -81,12 +125,15 @@ const handleKeyPress = (event) => {
   if (event.key === '[') { 
     isFollowingMouse = !isFollowingMouse;
   }
-
-  if (event.key === 'a') { 
-    moveTo(600, 250);
-  }
-  if (event.key === 'b') { 
-    moveTo(50, 50);
+  if (overlay) {
+    if (event.key === 'a') { 
+      moveTo(600, 250);
+      showBubble(600, 250);
+    }
+    if (event.key === 'b') { 
+      moveTo(50, 50);
+      removeBubble();
+    }
   }
 };
 
