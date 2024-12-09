@@ -1,0 +1,47 @@
+/* Style for the container */
+#popup-container {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Header (SkyPal) style */
+  #popup-container h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    color: #4A90E2;
+    margin: 0;
+  }
+  
+  /* Button style */
+  #toggle-btn {
+    padding: 10px 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #4A90E2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  #toggle-btn:hover {
+    background: #357ABD;
+  }
+  
+  /* VoiceBox container */
+  #voice-box-container {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
