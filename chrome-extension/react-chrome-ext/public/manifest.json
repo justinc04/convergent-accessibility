@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "SkyPal",
+  "version": "1.0.0",
+  "description": "This is a Chrome extension built with React and TypeScript",
+  "action": {
+      "default_popup": "index.html",
+      "default_title": "SkyPal",
+      "default_icon": "images/overlay.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "webNavigation"
+  ],
+  "web_accessible_resources": [
+      {
+        "resources": ["static/js/*.js", "static/css/*.css", "content.js", "images/overlay.png", "images/click_on.png"], 
+        "matches": ["<all_urls>"]
+      }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["scripts.js", "content.js"],
+      "css": []
+    }
+  ]
+}
